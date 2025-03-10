@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirm Your Course Purchase | Prana Kshetra</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5; /* Soft pink background */
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #e75480; /* Deep pink text */
+      margin-bottom: 1rem;
+    }
+    p {
+      text-align: center;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    label {
+      font-weight: 500;
+      color: #333;
+    }
+    input {
+      padding: 0.8rem;
+      border: 1px solid #f8c8dc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .btn-confirm {
+      background-color: #e75480;
+      color: #fff;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn-confirm:hover {
+      background-color: #d6416a;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Confirm Your Purchase</h1>
+
+    <p id="courseDetails">Loading course details...</p>
+
+    <form id="confirmForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required />
+
+      <button type="button" class="btn-confirm" onclick="window.location.href='final.html'">
+        Confirm & Buy
+      </button>
+      
+    </form>
+
+    <div class="success-message" id="successMessage">
+      ✅ Purchase Confirmed! We'll contact you soon. 🧘‍♀️  
+      <br/><br/>
+      (Payment integration coming soon!)
+    </div>
+  </div>
+
+  <script>
+    // Grab the URL params if available
+    const urlParams = new URLSearchParams(window.location.search);
+    let courseName = urlParams.get('course');
+    let coursePrice = urlParams.get('price');
+
+    // Fallback defaults if nothing passed
+    if (!courseName) courseName = 'Yoga for Beginners';
+    if (!coursePrice) coursePrice = '999';
+
+    // Display course details
+    const courseDetails = document.getElementById('courseDetails');
+    courseDetails.innerHTML = `
+      <strong>Course:</strong> ${courseName} <br> 
+      <strong>Price:</strong> ₹${coursePrice}
+    `;
+
+    // Form submission handling
+    const confirmForm = document.getElementById('confirmForm');
+    const successMessage = document.getElementById('successMessage');
+
+    confirmForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get user inputs
+      const userName = document.getElementById('name').value.trim();
+      const userEmail = document.getElementById('email').value.trim();
+      const userPhone = document.getElementById('phone').value.trim();
+
+      // Basic validation
+      if (!userName || !userEmail || !userPhone) {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      // You can replace this with an API call to your backend or payment gateway
+      console.log("Purchase Info Submitted:");
+      console.log({
+        userName,
+        userEmail,
+        userPhone,
+        courseName,
+        coursePrice
+      });
+
+      // Show confirmation message
+      successMessage.style.display = 'block';
+
+      // Disable form after success
+      confirmForm.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>

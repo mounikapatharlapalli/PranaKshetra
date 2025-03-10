@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prana Kshetra - Yoga for Life</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5cac7;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #7bb5ac;
+            padding: 15px 30px;
+            position: relative;
+        }
+
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #f5cac7;
+        }
+
+        .user-icon {
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            right: 30px;
+            top: 60px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-dropdown ul {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .user-dropdown ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .user-dropdown ul li:last-child {
+            border-bottom: none;
+        }
+
+        .user-dropdown ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .user-dropdown ul li a:hover {
+            color: #7bb5ac;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 200px 20px;
+            background: url('./assets/img/h1.jpg') no-repeat center center/cover;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .hero .btn {
+            padding: 15px 30px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: background 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: #7bb5ac;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            padding: 50px 20px;
+            background: white;
+        }
+
+        .feature {
+            flex: 1;
+            text-align: center;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+        }
+
+        .feature img {
+            width: 100%;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .feature h3 {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .quote {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 50px 20px;
+            color: #7bb5ac;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .quote:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonials {
+    background: #f9f9f9;
+    padding: 80px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f5cac7;
+    margin-bottom: 20px;
+}
+
+.testimonial-card p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.testimonial-card p:first-child {
+    font-style: italic;
+    color: #333;
+}
+
+.testimonial-card p:last-child {
+    font-weight: bold;
+    color: #f5cac7;
+}
+
+        .footer {
+            background: #7bb5ac;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info, .footer-links, .footer-newsletter {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .footer-info h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-info p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-info .social-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-info .social-links li a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-info .social-links li a:hover {
+            color: #f5cac7;
+        }
+
+        .footer-links h4, .footer-newsletter h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #f5cac7;
+        }
+
+        .footer-newsletter form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-newsletter input {
+            padding: 10px;
+            border-radius: 30px;
+            border: none;
+            width: 200px;
+        }
+
+        .footer-newsletter button {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .footer-newsletter button:hover {
+            background: #7bb5ac;
+        }
+
+        .footer p {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Prana Kshetra</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Asana</a></li>
+            <li><a href="#">Breathing</a></li>
+            <li><a href="#">Chanting</a></li>
+            <li><a href="#">Dhyana</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <i class="fas fa-user user-icon" onclick="toggleUserDropdown()"></i>
+        <div class="user-dropdown" id="userDropdown">
+            <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to Prana Kshetra</h1>
+        <p>Your journey to better health through Yoga, Breathing, Chanting, and Meditation.</p>
+        <a href="#" class="btn">Join Us</a>
+    </section>
+    <h2 align="center"; Background-color:"white">The ABCD of Yoga</h2>
+
+    <section class="features">
+        <div class="feature">
+            <img src="./assets/img/f1.jpg" alt="Feature 1">
+            <h3>Asana</h3>
+        </div>
+        <div class="feature">
+            <img src="./assets/img/f2.jpg" alt="Feature 2">
+            <h3>Breathing</h3>
+        </div>
+        <div class="feature">
+            <img src="./assets/img/f3.jpg" alt="Feature 3">
+            <h3>Chanting</h3>
+        </div>
+        <div class="feature">
+            <img src="./assets/img/f4.jpg" alt="Feature 4">
+            <h3>Dhyana</h3>
+        </div>
+    </section>
+
+    <section class="quote">
+        <p>"Yoga is the journey of the self, through the self, to the self."</p>
+    </section>
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Students Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="./assets/img/t1.jpg" alt="Testimonial 1">
+                    <p>"Yoga has transformed my life!"</p>
+                    <p>- John Doe</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="./assets/img/t2.jpg" alt="Testimonial 2">
+                    <p>"Prana Kshetra taught me the power of mindfulness."</p>
+                    <p>- Jane Smith</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="./assets/img/t3.jpg" alt="Testimonial 3">
+                    <p>"The classes are well-structured and very effective."</p>
+                    <p>- Mary Johnson</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Prana Kshetra</h3>
+                <p>Yoga for Life</p>
+                <ul class="social-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Asana</a></li>
+                    <li><a href="#">Breathing</a></li>
+                    <li><a href="#">Chanting</a></li>
+                    <li><a href="#">Dhyana</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Subscribe to Our Newsletter</h4>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <p>&copy; 2025 Prana Kshetra. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleUserDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

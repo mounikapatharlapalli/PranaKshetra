@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prana Kshetra | Yoga Blog</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff; /* Dominant white */
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #fff0f5; /* very light pink */
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: #e75480;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Blog Section */
+    .blog-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 50px auto;
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .posts {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .post {
+      background-color: #ffffff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+
+    .post:hover {
+      transform: translateY(-5px);
+    }
+
+    .post img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 20px;
+    }
+
+    .post-content h3 {
+      font-size: 1.8rem;
+      color: #3e4a3f;
+      margin-bottom: 10px;
+    }
+
+    .post-content p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .read-more {
+      display: inline-block;
+      color: #fff;
+      background-color: #e75480;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .read-more:hover {
+      background-color: #d6416a;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .sidebar-section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-section h4 {
+      color: #e75480;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-section ul {
+      list-style: none;
+    }
+
+    .sidebar-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-section ul li a {
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .sidebar-section ul li a:hover {
+      color: #e75480;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .blog-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Welcome to the Prana Kshetra Blog</h2>
+    <p>Your space for peace, wellness, and inner balance through yoga wisdom and practices.</p>
+  </section>
+
+  <!-- Blog Posts and Sidebar -->
+  <div class="blog-container">
+
+    <!-- Posts Section -->
+    <div class="posts">
+
+      <div class="post">
+        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a" alt="Yoga Pose">
+        <div class="post-content">
+          <h3>5 Morning Yoga Poses to Start Your Day</h3>
+          <p>Boost your energy and mental clarity with these simple yet powerful morning yoga poses. A perfect way to begin your day with mindfulness.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="https://images.unsplash.com/photo-1594737625785-cf63eaf6a41b" alt="Meditation">
+        <div class="post-content">
+          <h3>The Power of Breathwork in Yoga</h3>
+          <p>Discover how pranayama can transform your yoga practice and bring a deeper sense of calm and vitality to your life.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773" alt="Yoga Class">
+        <div class="post-content">
+          <h3>Yoga for Stress Relief: Poses That Heal</h3>
+          <p>Explore these gentle yoga postures specifically designed to reduce stress and restore balance in both body and mind.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Asanas</a></li>
+          <li><a href="#">Meditation</a></li>
+          <li><a href="#">Breathwork</a></li>
+          <li><a href="#">Lifestyle</a></li>
+          <li><a href="#">Nutrition</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h4>Popular Posts</h4>
+        <ul>
+          <li><a href="#">10 Yoga Poses for Beginners</a></li>
+          <li><a href="#">Morning Routines to Boost Energy</a></li>
+          <li><a href="#">Guided Meditation for Sleep</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+</body>
+</html>

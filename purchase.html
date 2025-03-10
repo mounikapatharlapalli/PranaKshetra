@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Purchase Yoga Courses | Prana Kshetra</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5; /* Light soft pink background */
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #e75480; /* Deep pink */
+      margin-bottom: 1rem;
+    }
+
+    .course-section {
+      margin-bottom: 3rem;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .course-card {
+      background-color: #fff;
+      border: 1px solid #f8c8dc; /* Soft pink border */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .course-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .course-content {
+      padding: 1.5rem;
+    }
+
+    .course-content h3 {
+      color: #d6416a;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-content p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background-color: #e75480;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #d6416a;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Yoga Courses</h1>
+
+    <!-- General Courses Section -->
+    <section class="course-section">
+      <h2>General Yoga Courses</h2>
+      <div class="courses">
+        <!-- Course 1 -->
+        <div class="course-card">
+          <div class="course-image">
+            <img src="assets/img/f1.jpg" alt="Beginner Yoga Course">
+          </div>
+          <div class="course-content">
+            <h3>Beginner Yoga</h3>
+            <p>Start your yoga journey with our easy-to-follow beginner classes focused on flexibility and relaxation.</p>
+            <a href="combine.html" class="btn">Purchase Now</a>
+        </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card">
+          <div class="course-image">
+            <img src="assets/img/f2.jpg" alt="Intermediate Yoga Course">
+          </div>
+          <div class="course-content">
+            <h3>Intermediate Flow</h3>
+            <p>Take your practice to the next level with dynamic flows and strength-building poses.</p>
+            <a href="#" class="btn">Purchase Now</a>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card">
+          <div class="course-image">
+            <img src="assets/img/y1.png" alt="Advanced Yoga Course">
+          </div>
+          <div class="course-content">
+            <h3>Advanced Yoga Mastery</h3>
+            <p>Master advanced poses and deepen your practice with guided expert instruction.</p>
+            <a href="#" class="btn">Purchase Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health Concern Specific Courses Section -->
+    <section class="course-section">
+      <h2>Health Concern Specific Courses</h2>
+      <div class="courses">
+
+        <!-- Course 1 -->
+        <div class="course-card">
+          <div class="course-image">
+            <img src="assets/img/y3.png" alt="Yoga for Stress Relief">
+          </div>
+          <div class="course-content">
+            <h3>Stress Relief Yoga</h3>
+            <p>Reduce stress and anxiety through calming yoga sequences and breathing exercises.</p>
+            <a href="#" class="btn">Purchase Now</a>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card">
+          <div class="course-image">
+            <img src="assets/img/f4.jpg" alt="Yoga for Back Pain">
+          </div>
+          <div class="course-content">
+            <h3>Yoga for Back Pain</h3>
+            <p>Target back pain with gentle stretches and strengthening poses designed for spinal health.</p>
+            <a href="#" class="btn">Purchase Now</a>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card">
+          <div class="course-image">
+            <img src="assets/img/f1.jpg" alt="Yoga for Diabetes">
+          </div>
+          <div class="course-content">
+            <h3>Yoga for Diabetes</h3>
+            <p>Improve insulin sensitivity and overall wellness through specialized yoga practices.</p>
+            <a href="#" class="btn">Purchase Now</a>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card">
+          <div class="course-image">
+            <img src="assets/img/f2.jpg" alt="Yoga for PCOS">
+          </div>
+          <div class="course-content">
+            <h3>Yoga for PCOS</h3>
+            <p>Balance hormones and improve metabolic health with targeted yoga sequences.</p>
+            <a href="#" class="btn">Purchase Now</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

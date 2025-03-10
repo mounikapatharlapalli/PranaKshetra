@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prana Kshetra - Yoga Platform</title>
+  <style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff; /* White background */
+  color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #ffffff; /* White navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e75480; /* deep pink for logo */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #e75480; /* deep pink on hover */
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e75480;
+  background-color: #ffffff; /* white */
+  color: #e75480;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #e75480;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #ffe4e1; /* soft pink hover */
+  color: #e75480;
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+
+/* Hero Section Styles */
+/* Hero Section Styles */
+.hero {
+  padding: 80px 20px;
+  background-color: #ffe4e1; /* soft pink background */
+  color: #333;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #e75480; /* deep pink */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.hero a {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background-color: #e75480;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.hero a:hover {
+  background-color: #d6416a;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero p {
+    margin: 0 auto;
+  }
+
+  .hero-image img {
+    max-width: 400px;
+  }
+}
+
+
+/* Pricing Section */
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+}
+
+.pricing-plan {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 280px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid #ffe5ec;
+}
+
+.pricing-plan:hover {
+  transform: translateY(-10px);
+}
+
+.basic {
+  background-color: #ffffff;
+}
+
+.standard {
+  background-color: #ffe5ec;
+  color: #333;
+  position: relative;
+}
+
+.premium {
+  background-color: #ffffff;
+}
+
+.popular {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e75480;
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+h2 {
+  margin: 10px 0 15px;
+  font-size: 1.6rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6d6875;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+ul li {
+  padding: 10px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.standard ul li {
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #e75480;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d6416a;
+}
+
+.btn-dark {
+  background-color: #6d6875;
+}
+
+.btn-dark:hover {
+  background-color: #4e4a54;
+}
+
+@media (max-width: 900px) {
+  .pricing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Footer Section */
+.footer {
+  background-color: #ffffff; /* White Footer */
+  color: #333;
+  padding: 50px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+  margin: 20px;
+}
+
+.footer-section h2, .footer-section h3 {
+  color: #b5838d; /* Slightly darker pink for headings */
+  margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section ul li a {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #e75480;
+}
+
+.footer-section .socials {
+  margin-top: 10px;
+}
+
+.footer-section .socials a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-section .socials img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+
+.footer-section .socials img:hover {
+  transform: scale(1.1);
+}
+
+.footer-section.newsletter form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section.newsletter input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.footer-section.newsletter button {
+  padding: 10px;
+  background-color: #e75480;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-section.newsletter button:hover {
+  background-color: #d6416a;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .footer-section .socials {
+    justify-content: center;
+  }
+}
+
+/* Prana Kshetra Section */
+.pk-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.pk-heading {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #3e4a3f;
+  margin-bottom: 30px;
+}
+
+.pk-buttons {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pk-button {
+  background-color: #ffffff;
+  color: #3e4a3f;
+  border: 2px solid #ffb6c1;
+  padding: 10px 20px;
+  margin: 0 8px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pk-button.active,
+.pk-button:hover {
+  background-color: #ffb6c1;
+  color: #ffffff;
+  border-color: #ffb6c1;
+}
+
+.pk-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.pk-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pk-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.pk-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.pk-card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.pk-card-content h3 {
+  font-size: 1.5rem;
+  color: #3e4a3f;
+  margin-bottom: 10px;
+}
+
+.pk-card-content p {
+  font-size: 1rem;
+  color: #6b6b6b;
+  margin: 5px 0;
+}
+
+.pk-add-btn {
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.4rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pk-add-btn:hover {
+  background-color: #ff69b4;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <h1>Prana Kshetra</h1>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="purchase.html ">Courses</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+     <!-- Auth Buttons -->
+<div class="auth-buttons">
+    <a href="login.html" class="btn">Login</a>
+    <a href="register.html" class="btn btn-primary">Register</a>
+</div>
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Welcome to <br> Prana Kshetra</h2>
+        <p>Your journey towards inner peace and wellness begins here. Explore our courses and start your transformation today.</p>
+        <a href="#">Get Started</a>
+      </div>
+      <div class="hero-image">
+        <img src="assets/img/y3.png" alt="Yoga Practice">
+      </div>
+      
+    </div>
+  </section>
+  
+
+
+  <div class="pk-container">
+    <h1 class="pk-heading">Yoga Class Schedule</h1>
+    
+    <div class="pk-buttons">
+      <button class="pk-button active">All Classes</button>
+      <button class="pk-button">Pilates Yoga</button>
+      <button class="pk-button">Hatha Yoga</button>
+      <button class="pk-button">Vinyasa Yoga</button>
+    </div>
+
+    <div class="pk-card-container">
+      <div class="pk-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwoEYkpbvlWhoWUXR4-7XbgfYsSLrme6HRnw&s" alt="Pilates Yoga" />
+        <div class="pk-card-content">
+          <h3>Elise Moran</h3>
+          <p>Pilates Yoga</p>
+          <p>🗓️ Sun, Tue, Thu 🕒 9:00 - 10:00</p>
+          <button class="pk-add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="pk-card">
+        <img src="https://i.pinimg.com/236x/09/47/93/094793704dad895cd4133b8b2c8e295d.jpg" alt="Iyengar Yoga" />
+        <div class="pk-card-content">
+          <h3>Kate Glover</h3>
+          <p>Iyengar Yoga</p>
+          <p>🗓️ Sun, Tue, Thu 🕒 9:00 - 10:00</p>
+          <button class="pk-add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="pk-card">
+        <img src="https://i.pinimg.com/474x/fa/59/53/fa595314124dc5d3af149f80e9ca110e.jpg" alt="Ashtanga Yoga" />
+        <div class="pk-card-content">
+          <h3>Elina Ekman</h3>
+          <p>Ashtanga Yoga</p>
+          <p>🗓️ Sun, Tue, Thu 🕒 9:00 - 10:00</p>
+          <button class="pk-add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="pk-card">
+        <img src="https://i.pinimg.com/474x/e8/84/2d/e8842df57571c5a0d99e1690fdcd0e2d.jpg" alt="Hatha Yoga" />
+        <div class="pk-card-content">
+          <h3>Lilly Fry</h3>
+          <p>Hatha Yoga</p>
+          <p>🗓️ Sun, Tue, Thu 🕒 9:00 - 10:00</p>
+          <button class="pk-add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="pk-card">
+        <img src="https://i.pinimg.com/474x/77/33/20/77332037a439f00627b201fba8790aa1.jpg" alt="Kundalini Yoga" />
+        <div class="pk-card-content">
+          <h3>Olivia Yates</h3>
+          <p>Kundalini Yoga</p>
+          <p>🗓️ Sun, Tue, Thu 🕒 9:00 - 10:00</p>
+          <button class="pk-add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="pk-card">
+        <img src="https://i.pinimg.com/474x/40/0a/b2/400ab25e98ed5a1ed43326301f631e11.jpg" alt="Vinyasa Yoga" />
+        <div class="pk-card-content">
+          <h3>Millie Harper</h3>
+          <p>Vinyasa Yoga</p>
+          <p>🗓️ Sun, Tue, Thu 🕒 9:00 - 10:00</p>
+          <button class="pk-add-btn">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="pricing-container">
+    <!-- BASIC PLAN -->
+    <div class="pricing-plan basic">
+        <h2>BASIC</h2>
+        <p class="price">Rs 49/mo</p>
+        <ul>
+            <li>Personal Trainer</li>
+            <li>Special Class</li>
+            <li>Free Tutorials</li>
+            <li>Group Training</li>
+        </ul>
+        <a href="#" class="btn">Join Now</a>
+    </div>
+
+    <!-- STANDARD PLAN -->
+    <div class="pricing-plan standard">
+        <span class="popular">Most Popular</span>
+        <h2>STANDARD</h2>
+        <p class="price">Rs 99/mo</p>
+        <ul>
+            <li>Personal Trainer</li>
+            <li>Special Class</li>
+            <li>Free Tutorials</li>
+            <li>Group Training</li>
+        </ul>
+        <a href="#" class="btn btn-dark">Join Now</a>
+    </div>
+
+    <!-- PREMIUM PLAN -->
+    <div class="pricing-plan premium">
+        <h2>PREMIUM</h2>
+        <p class="price">Rs 149/mo</p>
+        <ul>
+            <li>Personal Trainer</li>
+            <li>Special Class</li>
+            <li>Free Tutorials</li>
+            <li>Group Training</li>
+        </ul>
+        <a href="#" class="btn">Join Now</a>
+    </div>
+</div>
+
+
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+      
+      <!-- About -->
+      <div class="footer-section about">
+        <h2>Prana Kshetra</h2>
+        <p>Discover the path to inner peace and holistic well-being through Yoga, Meditation, and Mindfulness. Join Prana Kshetra to explore your journey of self-discovery.</p>
+      </div>
+  
+      <!-- Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Courses</a></li>
+          <li><a href="#">Asana</a></li>
+          <li><a href="#">Breathing</a></li>
+          <li><a href="#">Chanting</a></li>
+          <li><a href="#">Dhyana</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Info -->
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:support@pranakshetra.com">support@pranakshetra.com</a></p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: Prana Kshetra Center, Bengaluru, India</p>
+  
+        <!-- Social Media Icons -->
+        <div class="socials">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="YouTube" /></a>
+        </div>
+      </div>
+  
+      <!-- Newsletter -->
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Stay updated with our latest yoga tips and events.</p>
+        <form action="#">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+  
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Prana Kshetra. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const buttons = document.querySelectorAll(".pk-button");
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          buttons.forEach(btn => btn.classList.remove("active"));
+          button.classList.add("active");
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

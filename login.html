@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #f8c7d8, #f4a6c1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #f06b96;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #d67289;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form h2 {
+            text-align: center;
+            color: #f06b96;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .form input {
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #f06b96;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form button {
+            width: 80%;
+            padding: 12px;
+            background-color: #f06b96;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: #e3577d;
+        }
+
+        .toggle-form {
+            text-align: center;
+            color: #d67289;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .toggle-form:hover {
+            color: #f06b96;
+        }
+
+        .logout-section {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .logout-btn {
+            padding: 12px 20px;
+            background-color: #e77f67;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #c66d53;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="form-container">
+            <h1>Welcome to Prana Shetra</h1>
+            <p class="subtitle">Find your inner peace with us</p>
+
+            <!-- Login Form -->
+            <div class="form" id="loginForm">
+                <h2>Login</h2>
+                <form action="#">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="button" class="btn" onclick="window.location.href='index.html'">Login</button>
+
+                </form>
+                <p class="toggle-form" onclick="showForm('signInForm')">Don't have an account? Sign Up</p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="form" id="signInForm" style="display:none;">
+                <h2>Sign Up</h2>
+                <form action="#">
+                    <input type="email" id="signInEmail" placeholder="Email" required>
+                    <input type="password" id="signInPassword" placeholder="Password" required>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+                <p class="toggle-form" onclick="showForm('loginForm')">Already have an account? Login</p>
+            </div>
+        </div>
+
+        <!-- Logout Section -->
+        <div class="logout-section" id="logoutSection" style="display:none;">
+            <h2>You're Logged In!</h2>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signInForm').style.display = 'none';
+            document.getElementById('logoutSection').style.display = 'none';
+
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function logout() {
+            document.getElementById('logoutSection').style.display = 'none';
+            showForm('loginForm');
+        }
+    </script>
+</body>
+</html>
